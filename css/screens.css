@@ -1,0 +1,266 @@
+/* screens.css — the transaction history screen and the seller wallet
+   screen (balance card, deposit/withdraw actions, wallet history rows). */
+
+/* ==================== TRANSACTION HISTORY (SCREEN 3) ==================== */
+.history-filter-wrapper {
+  padding: 6px 16px 12px;
+  background-color: var(--bg-app);
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Design exactly matching Transaction History Phone screen in reference */
+.tx-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-card);
+  padding: 12px 14px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-line);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.tx-row:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.tx-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-avatar);
+  background: var(--primary-light);
+  color: var(--primary-hover);
+  font-weight: 800;
+  font-size: 11px;
+  flex-shrink: 0;
+  border: 1px solid var(--primary-border);
+}
+
+.tx-details {
+  flex: 1;
+  min-width: 0;
+  margin: 0 10px;
+}
+
+.tx-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.tx-date {
+  font-size: 10px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.tx-amount-col {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tx-amount {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+  display: block;
+}
+
+/* Small Tag Pill Badge (Reference Style) */
+.tx-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.tx-type-badge.orders {
+  background-color: var(--bg-input);
+  color: var(--text-muted);
+}
+
+.tx-type-badge.topup {
+  background-color: var(--primary-light);
+  color: var(--primary-hover);
+}
+
+.tx-type-badge.withdraw {
+  background-color: var(--bg-input);
+  color: var(--text-muted);
+}
+
+.tx-arrow-icon {
+  font-size: 9px;
+  font-weight: 900;
+}
+
+/* Ticket List Empty State */
+.ticket-empty {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-line);
+  border-radius: var(--radius-card);
+  margin-top: 8px;
+}
+
+.ticket-empty span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--bg-input);
+  color: var(--text-muted);
+  border-radius: var(--radius-avatar);
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+.ticket-empty h2 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.ticket-empty p {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.shared-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ==================== WALLET / SELLER ACCOUNT (SCREEN 4) ==================== */
+.wallet-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wallet-balance-card {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 55%, #1d4ed8 100%);
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  padding: 20px;
+  box-shadow: 0 10px 28px -8px rgba(37, 99, 235, 0.5);
+}
+
+.balance-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.balance-display {
+  display: flex;
+  align-items: baseline;
+  margin: 8px 0 14px;
+}
+
+.balance-display .symbol {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-right: 2px;
+}
+
+.balance-display .amount {
+  font-size: 34px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.balance-display .decimals {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.wallet-seller-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 14px;
+}
+
+.wallet-seller-badge .badge-profile-text strong {
+  color: #ffffff;
+}
+
+.wallet-seller-badge .badge-profile-text small {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wallet-seller-badge .avatar.small {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.badge-profile-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.badge-profile-text strong {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.badge-profile-text small {
+  font-size: 10px;
+  color: var(--text-light);
+}
+
+.wallet-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.wallet-history-section h3 {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.wallet-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+

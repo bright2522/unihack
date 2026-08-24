@@ -1,0 +1,97 @@
+/* Custom CSS — Khon Klang (คนกลาง) Escrow Ticket App
+   base.css — design tokens (:root variables, dark theme override) and the
+   global reset. Load first: every other stylesheet relies on these vars. */
+:root {
+  --bg-app: #f5f6fa;
+  --bg-card: #ffffff;
+  --bg-input: #eef0f6;
+  --text-main: #18181b;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-border: #bfdbfe;
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  --success-border: #bbf7d0;
+  --warning: #b45309;
+  --warning-light: #fef3c7;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --blue: #2563eb;
+  --blue-light: #eff6ff;
+  --border-line: #e3e6f0;
+  --shadow-subtle: 0 1px 2px rgba(24, 24, 27, 0.04);
+  --shadow-card: 0 4px 14px rgba(24, 24, 27, 0.07);
+  --font-family: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-avatar: 50%;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode: toggled by setting data-theme="dark" on <html> from Settings.
+   A designed slate-navy dark theme with layered surfaces — not flat black —
+   so cards, inputs and the page background all read as distinct elevations. */
+:root[data-theme="dark"] {
+  --bg-app: #15171d;
+  --bg-card: #1e212a;
+  --bg-input: #282c37;
+  --text-main: #f1f2f4;
+  --text-muted: #9aa0ac;
+  --text-light: #6b7180;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-light: #1b2c4a;
+  --primary-border: #2f4972;
+  --success-light: #14291e;
+  --warning-light: #33230b;
+  --danger-light: #2e1416;
+  --border-line: #2c303b;
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme="dark"] body {
+  background-color: #0b0c10;
+}
+
+:root[data-theme="dark"] .web-root {
+  background: radial-gradient(circle at 18% 15%, #1c2130 0%, #14161d 55%, #0b0c10 100%);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #dfe3ee;
+  color: var(--text-main);
+  font-family: var(--font-family);
+  line-height: 1.55; /* Thai combining marks need more vertical room than Latin */
+  overflow: hidden;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--transition-normal);
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+

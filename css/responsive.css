@@ -1,0 +1,274 @@
+/* responsive.css — breakpoint overrides. Must load LAST so its media-query
+   rules win the cascade over the base component/screen styles above. */
+
+/* ==================== RESPONSIVE DESIGN (MOBILE OVERRIDE) ==================== */
+@media (max-width: 640px) {
+  body {
+    background-color: var(--bg-app);
+  }
+
+  .web-root {
+    background-color: var(--bg-app);
+    align-items: stretch;
+    justify-content: stretch;
+    padding: 0;
+  }
+
+  .app-card {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .app-shell {
+    height: 100%;
+  }
+
+  .floating-nav-bar {
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+  }
+}
+
+/* ==================== DESKTOP LAYOUT (WIDE VIEWPORT) ==================== */
+/* On real desktop screens the app stops behaving like a floating phone card:
+   it takes up real space and the tab bar becomes a permanent side rail,
+   like an ordinary desktop web app, instead of a bottom pill. */
+@media (min-width: 900px) {
+  .web-root {
+    padding: 0;
+  }
+
+  .app-card {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .app-shell {
+    flex-direction: row;
+  }
+
+  /* Screens sit to the right of the permanent side rail */
+  .app-screen {
+    left: 96px;
+    width: calc(100% - 96px);
+  }
+
+  /* ---------- Side rail: brand mark + labeled nav ---------- */
+  .floating-nav-bar {
+    position: static;
+    flex: 0 0 96px;
+    width: 96px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    padding: 22px 12px 20px;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid var(--border-line);
+    background-color: var(--bg-card);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    z-index: 10;
+  }
+
+  .nav-brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 6px 14px -4px rgba(37, 99, 235, 0.35);
+    flex-shrink: 0;
+  }
+
+  .nav-item {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 72px;
+    height: 56px;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  .nav-item-label {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .nav-item.active {
+    box-shadow: none;
+  }
+
+  .nav-item-help {
+    margin-top: auto;
+  }
+
+  /* Full-screen chat detail no longer needs to hide the rail — it never
+     overlaps the message input bar in the side-rail layout. */
+  #screen-chat-detail.active ~ .floating-nav-bar {
+    display: flex;
+  }
+
+  /* ---------- Content: roomier desktop typography & spacing ---------- */
+  .app-header {
+    height: 76px;
+    padding: 0 36px;
+    border-bottom-color: var(--border-line);
+  }
+
+  .app-title-main {
+    font-size: 24px;
+  }
+
+  .app-title-sub {
+    font-size: 10.5px;
+  }
+
+  .pill-switch {
+    padding: 3px;
+    gap: 3px;
+  }
+
+  .pill-btn {
+    padding: 8px 18px;
+    font-size: 12.5px;
+  }
+
+  .circle-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-right-mode {
+    gap: 8px;
+  }
+
+  .search-bar-wrapper {
+    padding: 18px 36px 14px;
+  }
+
+  .search-pill {
+    padding: 6px 8px 6px 18px;
+  }
+
+  .search-pill input {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  .search-hints-row {
+    padding: 0 36px 14px;
+    font-size: 12px;
+  }
+
+  .chat-hint-chip {
+    padding: 5px 12px;
+    font-size: 11.5px;
+  }
+
+  .results-sub-header h3 {
+    font-size: 12px;
+  }
+
+  /* No more floating pill to clear at the bottom of scroll areas, and cap
+     line length on ultra-wide monitors so cards don't stretch edge-to-edge */
+  .screen-body.scrollable {
+    padding: 4px 36px 32px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .chat-list,
+  .transaction-list,
+  .results-content-list {
+    gap: 10px;
+  }
+
+  .chat-item {
+    padding: 16px 18px;
+    gap: 14px;
+  }
+
+  .chat-item .avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .chat-item-name {
+    font-size: 14.5px;
+  }
+
+  .chat-item-snippet {
+    font-size: 12.5px;
+  }
+
+  .tx-row,
+  .search-ticket-card {
+    padding: 16px 18px;
+  }
+
+  .tx-icon-circle,
+  .search-ticket-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .tx-name,
+  .search-ticket-id {
+    font-size: 14.5px;
+  }
+
+  .chat-feed {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px 36px 74px;
+  }
+
+  .chat-input-bar {
+    max-width: 872px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding: 16px 36px;
+  }
+
+  .history-filter-wrapper {
+    padding: 18px 36px 16px;
+  }
+
+  .wallet-container {
+    padding-top: 4px;
+  }
+
+  .wallet-balance-card {
+    padding: 28px;
+  }
+
+  .balance-display .amount {
+    font-size: 42px;
+  }
+}

@@ -1,0 +1,61 @@
+/* nav.css — the primary navigation: a floating pill dock on mobile that
+   becomes a fixed side rail on desktop (see responsive.css for the switch). */
+
+/* ==================== FLOATING BOTTOM NAVIGATION BAR ==================== */
+.floating-nav-bar {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  height: 52px;
+  background-color: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-line);
+  box-shadow: 0 10px 24px -6px rgba(15, 23, 42, 0.08), 0 0 1px rgba(0, 0, 0, 0.02);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8px;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-avatar);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.nav-item:hover {
+  color: var(--text-main);
+}
+
+/* Active Nav Item Bubble (Reference Style) */
+.nav-item.active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.32);
+}
+
+/* Sidebar-only elements: collapsed on the mobile pill dock */
+.nav-brand-mark,
+.nav-item-label {
+  display: none;
+}
+
+/* On narrower layouts the nav bar floats over the full-screen chat's message
+   input, so hide it while a full-screen sub-view (chat detail) is active.
+   Desktop keeps it as a persistent side rail (see wide-viewport block below),
+   where it never overlaps the input bar, so it stays visible there. */
+@media (max-width: 899px) {
+  #screen-chat-detail.active ~ .floating-nav-bar {
+    display: none;
+  }
+}
+

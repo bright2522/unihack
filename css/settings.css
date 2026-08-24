@@ -1,0 +1,197 @@
+/* settings.css — the account & settings screen: profile card, settings
+   rows, dark-mode toggle switch, and the seller login/logout box. */
+
+/* ==================== ACCOUNT & SETTINGS SCREEN ==================== */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.profile-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-card-info strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-card-info small {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.settings-section h3 {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border-line);
+  text-align: left;
+  width: 100%;
+  background: none;
+}
+
+.settings-list .settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.settings-row-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.settings-row-desc {
+  font-size: 10.5px;
+  color: var(--text-light);
+}
+
+.settings-row-value {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.settings-row-link {
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.settings-row-link:hover {
+  background-color: var(--bg-input);
+}
+
+.settings-row-chevron {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+/* Toggle switch (used for dark mode) */
+.toggle-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-line);
+  transition: background-color var(--transition-fast);
+}
+
+.toggle-switch .toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-fast);
+}
+
+.toggle-switch.on {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.toggle-switch.on .toggle-knob {
+  transform: translateX(18px);
+}
+
+/* Seller account box (guest prompt / logged-in status) */
+.seller-account-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.seller-account-box p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.seller-account-box.logged-in {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seller-account-box.logged-in .settings-row {
+  padding: 0;
+  border-bottom: none;
+}
+
+.settings-btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.settings-btn-row .btn {
+  flex: 1;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.status-pill.green {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+

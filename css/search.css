@@ -1,0 +1,238 @@
+/* search.css — the chats-screen search pill, hint chips, and the dual
+   search-results panel (matched sellers + matched ticket tracking cards). */
+
+/* ==================== SEARCH BAR ==================== */
+.search-bar-wrapper {
+  padding: 6px 16px 10px;
+  background-color: var(--bg-app);
+}
+
+.search-pill {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-line);
+  padding: 4px 6px 4px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-subtle);
+  transition: border-color var(--transition-fast);
+  position: relative;
+}
+
+.search-pill:focus-within {
+  border-color: var(--text-light);
+}
+
+.search-pill-icon {
+  font-size: 18px;
+  color: var(--text-light);
+  margin-right: 8px;
+  line-height: 1;
+}
+
+.search-pill input {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.search-pill input::placeholder {
+  color: var(--text-light);
+}
+
+/* Search Clear Button */
+.search-clear-btn {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-light);
+  padding: 0 8px;
+  transition: color var(--transition-fast);
+}
+
+.search-clear-btn:hover {
+  color: var(--text-main);
+}
+
+/* Search Hint Chips */
+.search-hints-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 18px 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.chat-hint-chip {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-line);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 10px;
+  transition: all var(--transition-fast);
+}
+
+.chat-hint-chip:hover {
+  border-color: var(--text-light);
+}
+
+/* ==================== SEARCH RESULTS SYSTEM ==================== */
+.search-results-panel {
+  margin-bottom: 20px;
+  animation: panelFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.results-sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.results-sub-header h3 {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.results-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  background-color: var(--bg-input);
+  color: var(--text-muted);
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+}
+
+.results-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Styled Ticket Card in Search Results (acts as tracking ID display) */
+.search-ticket-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-card);
+  padding: 12px 14px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-line);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-align: left;
+}
+
+.search-ticket-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.search-ticket-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-avatar);
+  font-weight: 800;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.search-ticket-icon.active {
+  background-color: var(--warning-light);
+  color: #92400e;
+}
+
+.search-ticket-icon.completed {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.search-ticket-icon.cancelled {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+.search-ticket-main {
+  flex: 1;
+  min-width: 0;
+  margin: 0 10px;
+}
+
+.search-ticket-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.search-ticket-id {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.search-ticket-badge {
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 6px;
+}
+
+.search-ticket-badge.active {
+  background-color: var(--warning-light);
+  color: #92400e;
+}
+
+.search-ticket-badge.completed {
+  background-color: var(--primary-light);
+  color: var(--primary-hover);
+}
+
+.search-ticket-badge.cancelled {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+.search-ticket-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-ticket-amount {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.search-ticket-amount strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.search-ticket-amount small {
+  display: block;
+  font-size: 9.5px;
+  color: var(--text-light);
+}
+

@@ -8,7 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- Stylesheets, in cascade order: tokens/reset first, breakpoints last -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   
@@ -672,6 +682,21 @@
     </div> <!-- End App Card -->
   </div> <!-- End Web Root -->
 
-  <script src="app.js"></script>
+  <!-- Scripts, in dependency order (classic scripts, shared global scope) -->
+  <script src="src/data.js"></script>
+  <script src="src/state.js"></script>
+  <script src="src/utils.js"></script>
+  <script src="src/dom.js"></script>
+  <script src="src/toast.js"></script>
+  <script src="src/nav.js"></script>
+  <script src="src/chats.js"></script>
+  <script src="src/chat-detail.js"></script>
+  <script src="src/transactions.js"></script>
+  <script src="src/wallet.js"></script>
+  <script src="src/ticket-modal.js"></script>
+  <script src="src/seller-auth.js"></script>
+  <script src="src/settings.js"></script>
+  <script src="src/modal-core.js"></script>
+  <script src="src/main.js"></script>
 </body>
 </html>
