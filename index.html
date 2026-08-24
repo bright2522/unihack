@@ -172,40 +172,82 @@
 
           <div class="screen-body scrollable">
             <div class="wallet-container">
-              
-              <!-- Premium Minimal Balance Card -->
-              <div class="wallet-balance-card">
-                <span class="balance-kicker">วงเงินเครดิตค้ำประกัน</span>
-                <div class="balance-display">
-                  <span class="symbol">฿</span>
-                  <span class="amount" id="wallet-credit-amount">12,500</span>
-                  <span class="decimals">.00</span>
-                </div>
-                <div class="wallet-seller-badge" id="wallet-seller-profile">
-                  <div class="avatar small">FS</div>
-                  <div class="badge-profile-text">
-                    <strong>Fuji Store</strong>
-                    <small>DS-582941</small>
+
+              <!-- Balance Hero: gradient card + overlapping action pills -->
+              <div class="wallet-hero">
+                <div class="wallet-balance-card">
+                  <div class="balance-top-row">
+                    <span class="balance-kicker">วงเงินเครดิตค้ำประกัน</span>
+                    <button class="balance-visibility-btn" id="btn-toggle-balance" aria-label="ซ่อน/แสดงยอดเงิน" aria-pressed="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
                   </div>
-                  <span class="status-pill green">Online</span>
+                  <div class="balance-display" id="wallet-balance-display">
+                    <span class="symbol">฿</span>
+                    <span class="amount" id="wallet-credit-amount">12,500</span>
+                    <span class="decimals">.00</span>
+                  </div>
+                  <div class="wallet-seller-badge" id="wallet-seller-profile">
+                    <div class="avatar small">FS</div>
+                    <div class="badge-profile-text">
+                      <strong>Fuji Store</strong>
+                      <small>DS-582941</small>
+                    </div>
+                    <span class="status-pill green">Online</span>
+                  </div>
+                </div>
+
+                <!-- Wallet Quick Action Buttons (overlap the card like Send/Request) -->
+                <div class="wallet-actions-row">
+                  <button class="wallet-pill-btn" id="btn-wallet-deposit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>เติมเครดิต</span>
+                  </button>
+                  <button class="wallet-pill-btn" id="btn-wallet-withdraw">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>ถอนเครดิต</span>
+                  </button>
                 </div>
               </div>
 
-              <!-- Wallet Quick Action Buttons -->
-              <div class="wallet-actions-row">
-                <button class="btn btn-primary" id="btn-wallet-deposit">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                  <span>เติมเครดิต</span>
-                </button>
-                <button class="btn btn-outline" id="btn-wallet-withdraw">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                  <span>ถอนเครดิต</span>
-                </button>
+              <!-- PromptPay hint banner -->
+              <button class="wallet-promo-banner" id="btn-wallet-promptpay-hint">
+                <span class="wallet-promo-icon">⚡</span>
+                <span class="wallet-promo-text">เติมเครดิตง่ายและปลอดภัยด้วยพร้อมเพย์</span>
+                <span class="wallet-promo-chevron">›</span>
+              </button>
+
+              <!-- Quick Actions Grid -->
+              <div class="wallet-quick-actions">
+                <h3>เมนูลัด</h3>
+                <div class="quick-actions-grid">
+                  <button class="quick-action-tile tile-blue" id="quick-action-topup">
+                    <span class="quick-action-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </span>
+                    <span>เติมเครดิต</span>
+                  </button>
+                  <button class="quick-action-tile tile-amber" id="quick-action-withdraw">
+                    <span class="quick-action-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </span>
+                    <span>ถอนเครดิต</span>
+                  </button>
+                  <button class="quick-action-tile tile-green" id="quick-action-deals">
+                    <span class="quick-action-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    </span>
+                    <span>ดีลทั้งหมด</span>
+                  </button>
+                </div>
               </div>
 
               <!-- Wallet Transaction History Section -->
               <div class="wallet-history-section">
-                <h3>รายการเครดิตล่าสุด</h3>
+                <div class="wallet-history-header">
+                  <h3>รายการเครดิตล่าสุด</h3>
+                  <button class="wallet-see-all-btn" id="btn-wallet-see-all">ดูทั้งหมด</button>
+                </div>
                 <div class="wallet-history-list" id="wallet-history-list">
                   <!-- Wallet activities generated dynamically -->
                 </div>

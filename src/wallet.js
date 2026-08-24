@@ -65,6 +65,21 @@ btnWalletTopupShortcut.addEventListener('click', () => openWalletModal('topup'))
 btnWalletDeposit.addEventListener('click', () => openWalletModal('topup'));
 btnWalletWithdraw.addEventListener('click', () => openWalletModal('withdraw'));
 
+// Quick actions grid + PromptPay hint banner — shortcuts to the same actions
+btnWalletPromptpayHint.addEventListener('click', () => openWalletModal('topup'));
+quickActionTopup.addEventListener('click', () => openWalletModal('topup'));
+quickActionWithdraw.addEventListener('click', () => openWalletModal('withdraw'));
+quickActionDeals.addEventListener('click', () => switchScreen('transactions'));
+btnWalletSeeAll.addEventListener('click', () => switchScreen('transactions'));
+
+// Hide/show the credit balance (privacy toggle, purely visual — no state persisted)
+let balanceHidden = false;
+btnToggleBalance.addEventListener('click', () => {
+  balanceHidden = !balanceHidden;
+  walletBalanceDisplay.classList.toggle('balance-hidden', balanceHidden);
+  btnToggleBalance.setAttribute('aria-pressed', String(balanceHidden));
+});
+
 // ==================== WALLET MODAL LOGIC ====================
 function openWalletModal(mode) {
   walletMode = mode;

@@ -49,9 +49,16 @@ const transactionListContainer = document.getElementById('transaction-list-conta
 
 // Wallet elements
 const walletCreditAmount = document.getElementById('wallet-credit-amount');
+const walletBalanceDisplay = document.getElementById('wallet-balance-display');
+const btnToggleBalance = document.getElementById('btn-toggle-balance');
 const btnWalletTopupShortcut = document.getElementById('btn-wallet-topup-shortcut');
 const btnWalletDeposit = document.getElementById('btn-wallet-deposit');
 const btnWalletWithdraw = document.getElementById('btn-wallet-withdraw');
+const btnWalletPromptpayHint = document.getElementById('btn-wallet-promptpay-hint');
+const quickActionTopup = document.getElementById('quick-action-topup');
+const quickActionWithdraw = document.getElementById('quick-action-withdraw');
+const quickActionDeals = document.getElementById('quick-action-deals');
+const btnWalletSeeAll = document.getElementById('btn-wallet-see-all');
 const walletHistoryList = document.getElementById('wallet-history-list');
 
 // Modals
