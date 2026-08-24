@@ -4,8 +4,8 @@
   "description": "Khon Klang (คนกลาง) escrow ticket prototype — static HTML/CSS/JS",
   "private": true,
   "scripts": {
-    "start": "http-server -p 8000 -c-1",
-    "dev": "http-server -p 8000 -c-1 -o"
+    "start": "http-server -p 5173 -c-1",
+    "dev": "http-server -p 5173 -c-1 -o"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
