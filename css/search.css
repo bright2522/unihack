@@ -1,10 +1,42 @@
 /* search.css — the chats-screen search pill, hint chips, and the dual
    search-results panel (matched sellers + matched ticket tracking cards). */
 
+/* ==================== SEARCH HERO ==================== */
+.search-hero {
+  padding: 22px 20px 16px;
+  background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg-app) 100%);
+  border-radius: 0 0 28px 28px;
+}
+
+.search-hero-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+/* Typewriter headline: JS (src/typewriter.js) fills in the text one
+   character at a time; this just draws the blinking caret. */
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: bottom;
+  border-right: 3px solid var(--primary);
+  padding-right: 2px;
+  animation: typewriterBlink 0.8s step-end infinite;
+}
+
+@keyframes typewriterBlink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary); }
+}
+
 /* ==================== SEARCH BAR ==================== */
 .search-bar-wrapper {
   padding: 6px 16px 10px;
-  background-color: var(--bg-app);
+  background-color: transparent;
 }
 
 .search-pill {
