@@ -29,7 +29,7 @@ function runTypewriterLoop(el, phrases) {
 
   function deleteStep() {
     i -= 1;
-    el.textContent = fullText.slice(0, i);
+    el.textContent = currentPhrase().slice(0, i);
     if (i > 0) {
       setTimeout(deleteStep, TYPEWRITER_DELETE_SPEED);
     } else {
