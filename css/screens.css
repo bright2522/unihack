@@ -281,7 +281,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .wallet-pill-btn {
@@ -289,19 +289,22 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 12px;
-  background-color: var(--bg-card);
-  color: var(--text-main);
+  min-height: 44px;
+  padding: 10px 12px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  color: #ffffff;
   font-size: 13px;
   font-weight: 700;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+  box-shadow: none;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .wallet-pill-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.22);
+  background-color: rgba(255, 255, 255, 0.24);
+  box-shadow: none;
 }
 
 /* PromptPay hint banner */
@@ -421,4 +424,3 @@
   flex-direction: column;
   gap: 8px;
 }
-

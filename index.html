@@ -173,7 +173,7 @@
           <div class="screen-body scrollable">
             <div class="wallet-container">
 
-              <!-- Balance Hero: gradient card + overlapping action pills -->
+              <!-- Balance hero with its primary actions contained in the card -->
               <div class="wallet-hero">
                 <div class="wallet-balance-card">
                   <div class="balance-top-row">
@@ -195,18 +195,19 @@
                     </div>
                     <span class="status-pill green">Online</span>
                   </div>
-                </div>
 
-                <!-- Wallet Quick Action Buttons (overlap the card like Send/Request) -->
-                <div class="wallet-actions-row">
-                  <button class="wallet-pill-btn" id="btn-wallet-deposit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    <span>เติมเครดิต</span>
-                  </button>
-                  <button class="wallet-pill-btn" id="btn-wallet-withdraw">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    <span>ถอนเครดิต</span>
-                  </button>
+                  <!-- Primary wallet actions stay within the card, so they never
+                       look detached or get clipped on shorter screens. -->
+                  <div class="wallet-actions-row">
+                    <button class="wallet-pill-btn" id="btn-wallet-deposit">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      <span>เติมเครดิต</span>
+                    </button>
+                    <button class="wallet-pill-btn" id="btn-wallet-withdraw">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      <span>ถอนเครดิต</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
